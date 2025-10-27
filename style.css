@@ -1,14 +1,15 @@
 :root {
   --bg: #ffffff;
   --fg: #111111;
-  --accent: #2f8ea3;
+  --accent: rgb(47, 142, 163);
 }
 body {
   font-family: Arial, sans-serif;
   margin: 20px;
 }
 
-canvas {
+canvas,
+.history {
   width: 800px;
   margin: 20px auto;
   padding: 20px 40px;
@@ -50,5 +51,9 @@ canvas {
 }
 
 .history-table th {
-  background-color: #f2f2f2;
+  background-color: #dfdfdf;
+  font-weight: regular;
+}
+.history-table tr:nth-child(odd) {
+  background-color: #dfdfdf;
 }

@@ -7,9 +7,16 @@ const chart = new Chart(ctx, {
       {
         label: 'Prix',
         data: [],
-        backgroundColor: '#2f8ea3',
+        borderWidth: 3,
+        minBarLength: 5,
+        borderRadius: 20,
+        borderColor: 'rgba(47, 142, 163, 1)',
+        backgroundColor: 'rgba(47, 142, 163, 0.5)',
       },
     ],
+    options: {
+      indexAxis: 'y',
+    },
   },
 });
 
@@ -70,7 +77,7 @@ updateChartData();
 const updateButton = document.createElement('button');
 updateButton.textContent = 'Mettre à jour les données';
 updateButton.classList.add('update-button');
-document.getElementById('myChart').after(updateButton);
+document.getElementById('myChart').before(updateButton);
 
 updateButton.addEventListener('click', async () => {
   updateButton.textContent = 'Mise à jour...';
@@ -81,11 +88,12 @@ updateButton.addEventListener('click', async () => {
 });
 
 // Create the history table
+const history = document.createElement('div');
+history.classList.add('history');
 const titleHistory = document.createElement('h2');
 titleHistory.textContent = 'Historique des données';
-document.body.appendChild(titleHistory);
-const history = document.createElement('table');
-history.classList.add('history-table');
+const historyTable = document.createElement('table');
+historyTable.classList.add('history-table');
 const headerRow = document.createElement('tr');
 const headers = ['Date', 'Données'];
 headers.forEach((text) => {
@@ -93,5 +101,7 @@ headers.forEach((text) => {
   th.textContent = text;
   headerRow.appendChild(th);
 });
-history.appendChild(headerRow);
+history.appendChild(titleHistory);
+history.appendChild(historyTable);
+historyTable.appendChild(headerRow);
 document.body.appendChild(history);
