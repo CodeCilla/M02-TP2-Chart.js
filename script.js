@@ -13,6 +13,8 @@ const chart = new Chart(ctx, {
   },
 });
 
+
+//connect to the API
 const token =
   'a5e69ea677b418dab9c40723d9a9f0103b9737c071fce7ae037cb7bb81abb840';
 const apiUrl = 'https://rest.coincap.io/v3/price/bysymbol/BTC%2CETH%2CADA';
@@ -41,4 +43,12 @@ async function updateChartData() {
   }
 }
 updateChartData();
+
+// Create and add the update button
+const updateButton = document.createElement('button');
+updateButton.textContent = 'Update Data';
+updateButton.classList.add('update-button');
+document.getElementById('myChart').after(updateButton);
+updateButton.addEventListener('click', updateChartData);
+
 
