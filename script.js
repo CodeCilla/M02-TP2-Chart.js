@@ -42,8 +42,7 @@ const chart = new Chart(ctx, {
 });
 
 // Connect to the API
-const token =
-  'a5e69ea677b418dab9c40723d9a9f0103b9737c071fce7ae037cb7bb81abb840';
+const token = 'xxxxxxxxxxx';
 const apiUrl = 'https://rest.coincap.io/v3/price/bysymbol/BNB%2CETH%2CBCH';
 
 async function updateChartData() {
